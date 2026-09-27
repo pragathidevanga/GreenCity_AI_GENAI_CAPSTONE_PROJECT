@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-primary: #14532D;
+  --color-secondary: #2E7D52;
+  --color-accent: #72B87A;
+  --color-light-green: #EAF6EC;
+  --color-bg: #F7FAF7;
+  --color-card: #FFFFFF;
+  --color-text-primary: #17321F;
+  --color-text-secondary: #66756B;
+  --color-warning: #D99A2B;
+  --color-critical: #D95C5C;
+  --color-success: #3E8E5B;
+  --shadow-custom: 0 8px 30px rgba(20, 83, 45, 0.08);
+}
+
+body {
+  font-family: 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Utilities and Micro-interactions */
+.custom-shadow {
+  box-shadow: 0 8px 30px rgba(20, 83, 45, 0.08);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(20, 83, 45, 0.12);
+}
+
+.hero-glow {
+  box-shadow: 0 0 50px rgba(114, 184, 122, 0.25);
+}
+
+/* Print styling for clean executive report generation */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  header, footer, .no-print, nav, button {
+    display: none !important;
+  }
+
+  .print-area {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+  }
+
+  .print-break {
+    page-break-inside: avoid;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "green-city-ai-root",
+  "version": "1.0.0",
+  "description": "Green City AI - Generative AI-Based Sustainable City Planning System",
+  "private": true,
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "node backend/server.js",
+    "dev:backend": "node --watch backend/server.js",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "build:frontend": "npm run build --prefix frontend"
+  }
+}
