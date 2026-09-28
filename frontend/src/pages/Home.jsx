@@ -30,51 +30,45 @@ const steps = [
 ];
 
 const stats = [
-  { value: '7', label: 'Environmental Indicators', icon: <Activity className="w-5 h-5 text-emerald-600" /> },
-  { value: '100', label: 'Maximum Score', icon: <Award className="w-5 h-5 text-emerald-600" /> },
-  { value: 'AI', label: 'Powered Recommendations', icon: <Brain className="w-5 h-5 text-emerald-600" /> },
-  { value: '1', label: 'Improvement Report', icon: <FileCheck className="w-5 h-5 text-emerald-600" /> }
+  { value: '7', label: 'Environmental Indicators', icon: <Activity size={20} color="var(--primary-green)" /> },
+  { value: '100', label: 'Maximum Score', icon: <Award size={20} color="var(--primary-green)" /> },
+  { value: 'AI', label: 'Powered Recommendations', icon: <Brain size={20} color="var(--primary-green)" /> },
+  { value: '1', label: 'Improvement Report', icon: <FileCheck size={20} color="var(--primary-green)" /> }
 ];
 
 const Home = () => {
   return (
-    <div className="space-y-16 sm:space-y-24">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '64px' }}>
       
       {/* Hero Section */}
       <Hero />
 
-      {/* Statistics Strip Section (Prompt #10) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-8 border border-emerald-900/10 custom-shadow grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      {/* Stats Strip */}
+      <div className="container">
+        <div className="stats-strip">
           {stats.map((stat, idx) => (
-            <div key={idx} className="space-y-1 p-4 rounded-2xl bg-[#F7FAF7] border border-emerald-900/5">
-              <div className="flex justify-center mb-1">{stat.icon}</div>
-              <div className="text-3xl sm:text-4xl font-black text-[#14532D]">
-                {stat.value}
-              </div>
-              <p className="text-xs font-extrabold text-[#66756B] uppercase tracking-wider">
-                {stat.label}
-              </p>
+            <div key={idx} className="stat-item">
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4px' }}>{stat.icon}</div>
+              <div className="stat-number">{stat.value}</div>
+              <div className="stat-label">{stat.label}</div>
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* How It Works Section (Prompt #11) */}
-      <section id="how-it-works" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 space-y-3">
-          <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-[#14532D] text-xs font-bold uppercase tracking-wider">
-            WORKFLOW OVERVIEW
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#17321F]">
+      {/* How It Works Section */}
+      <section id="how-it-works" className="container">
+        <div className="text-center" style={{ marginBottom: '40px' }}>
+          <span className="badge" style={{ marginBottom: '8px' }}>WORKFLOW OVERVIEW</span>
+          <h2 style={{ fontSize: '36px', fontWeight: 900, color: 'var(--text-primary)', marginBottom: '8px' }}>
             From Data to Sustainable Action
           </h2>
-          <p className="text-base text-[#66756B] max-w-2xl mx-auto">
+          <p style={{ fontSize: '16px', color: 'var(--text-secondary)' }}>
             Green City AI turns simple locality information into understandable sustainability insights.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid-4">
           {steps.map((step, idx) => (
             <FeatureCard
               key={idx}
@@ -87,21 +81,19 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Environmental Indicators Section (Prompt #12) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 space-y-3">
-          <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-[#14532D] text-xs font-bold uppercase tracking-wider">
-            CORE INDICATORS
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#17321F]">
+      {/* What We Analyze Section */}
+      <section className="container">
+        <div className="text-center" style={{ marginBottom: '40px' }}>
+          <span className="badge" style={{ marginBottom: '8px' }}>CORE INDICATORS</span>
+          <h2 style={{ fontSize: '36px', fontWeight: 900, color: 'var(--text-primary)', marginBottom: '8px' }}>
             What We Analyze
           </h2>
-          <p className="text-base text-[#66756B] max-w-2xl mx-auto">
+          <p style={{ fontSize: '16px', color: 'var(--text-secondary)' }}>
             Seven crucial environmental and urban infrastructure sectors assessed by Green City AI.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid-4">
           {indicatorMeta.map((item) => (
             <IndicatorCard
               key={item.key}
@@ -114,31 +106,37 @@ const Home = () => {
       </section>
 
       {/* Bottom CTA Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="bg-gradient-to-r from-[#14532D] via-[#1b683a] to-[#2E7D52] rounded-3xl p-10 sm:p-14 text-white text-center space-y-6 shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-          
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/20 text-emerald-100 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" /> Start Exploring Now
+      <section className="container" style={{ paddingBottom: '32px' }}>
+        <div
+          style={{
+            background: 'linear-gradient(135deg, #14532D 0%, #1b683a 50%, #2E7D52 100%)',
+            borderRadius: '28px',
+            padding: '48px',
+            color: '#ffffff',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '20px',
+            boxShadow: 'var(--card-shadow)'
+          }}
+        >
+          <span className="badge" style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', color: '#ffffff' }}>
+            <Sparkles size={14} /> Start Exploring Now
           </span>
 
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight max-w-2xl mx-auto">
+          <h2 style={{ fontSize: '36px', fontWeight: 900, maxWidth: '600px', lineHeight: 1.2 }}>
             Ready to Evaluate Your Locality's Sustainability?
           </h2>
 
-          <p className="text-emerald-100/90 text-base max-w-xl mx-auto font-medium">
+          <p style={{ fontSize: '16px', opacity: 0.9, maxWidth: '500px' }}>
             It takes under 2 minutes to assess your locality and generate AI recommendations.
           </p>
 
-          <div className="pt-2">
-            <Link
-              to="/assessment"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-[#14532D] font-extrabold text-base shadow-lg hover:bg-emerald-50 hover:-translate-y-0.5 transition-all"
-            >
-              <span>Assess Your City</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
+          <Link to="/assessment" className="btn-primary" style={{ backgroundColor: '#ffffff', color: 'var(--primary-green)' }}>
+            <span>Assess Your City</span>
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
 

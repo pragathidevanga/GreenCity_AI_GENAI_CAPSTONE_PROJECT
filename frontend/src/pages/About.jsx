@@ -1,144 +1,124 @@
 import React from 'react';
-import { Leaf, Award, Cpu, ShieldCheck, CheckCircle2, Server, Layout, Sparkles } from 'lucide-react';
+import { Award, Cpu, ShieldCheck, CheckCircle2, Server, Layout, Sparkles } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12">
+    <div className="container" style={{ padding: '48px 20px', maxWidth: '960px', display: 'flex', flexDirection: 'column', gap: '48px' }}>
       
-      {/* Top Banner with Capstone Badge */}
-      <div className="text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-[#14532D] text-xs font-bold uppercase tracking-wider border border-emerald-200">
-          <Award className="w-4 h-4 text-emerald-700" />
-          <span>BCA CAPSTONE PROJECT 2026</span>
+      {/* Top Banner */}
+      <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <div>
+          <span className="badge">
+            <Award size={14} />
+            <span>BCA CAPSTONE PROJECT 2026</span>
+          </span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-black text-[#17321F] tracking-tight">
+        <h1 style={{ fontSize: '40px', fontWeight: 900, color: 'var(--text-primary)' }}>
           About Green City AI
         </h1>
 
-        <p className="text-lg text-[#66756B] max-w-2xl mx-auto leading-relaxed">
+        <p style={{ fontSize: '18px', color: 'var(--text-secondary)', maxWidth: '640px', margin: '0 auto', lineHeight: 1.6 }}>
           Green City AI aims to help users understand local sustainability conditions and identify practical, data-driven improvement opportunities for urban communities.
         </p>
       </div>
 
-      {/* Problem & Solution Cards (Prompt #30) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        {/* Problem Card */}
-        <div className="bg-white p-8 rounded-3xl border border-emerald-900/10 custom-shadow space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-xl">
+      {/* Problem & Solution Cards */}
+      <div className="grid-2">
+        <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ width: '48px', height: '48px', borderRadius: '16px', backgroundColor: '#fef3c7', fontSize: '24px', display: 'flex', alignItems: 'center', justifyCenter: 'center' }}>
             ⚠️
           </div>
-          <h2 className="text-2xl font-extrabold text-[#17321F]">
-            The Problem
-          </h2>
-          <p className="text-sm text-[#66756B] leading-relaxed">
+          <h2 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--text-primary)' }}>The Problem</h2>
+          <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
             Environmental and municipal infrastructure information can be fragmented, technical, and difficult for citizens and planners to evaluate for localized sustainability decision-making.
           </p>
         </div>
 
-        {/* Solution Card */}
-        <div className="bg-white p-8 rounded-3xl border border-emerald-900/10 custom-shadow space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-[#14532D] flex items-center justify-center font-bold text-xl">
+        <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div style={{ width: '48px', height: '48px', borderRadius: '16px', backgroundColor: 'var(--light-green)', fontSize: '24px', display: 'flex', alignItems: 'center', justifyCenter: 'center' }}>
             🌱
           </div>
-          <h2 className="text-2xl font-extrabold text-[#17321F]">
-            The Solution
-          </h2>
-          <p className="text-sm text-[#66756B] leading-relaxed">
+          <h2 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--text-primary)' }}>The Solution</h2>
+          <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
             Green City AI brings seven key sustainability indicators into a single intuitive assessment system and uses Generative AI to deliver personalized, practical recommendations.
           </p>
         </div>
-
       </div>
 
-      {/* Technology Stack Section (Prompt #30) */}
-      <div className="bg-white p-8 sm:p-10 rounded-3xl border border-emerald-900/10 custom-shadow space-y-6">
-        <div>
-          <span className="px-3 py-1 rounded-full bg-emerald-100 text-[#14532D] text-xs font-bold uppercase tracking-wider">
-            SYSTEM ARCHITECTURE
-          </span>
-          <h2 className="text-2xl font-black text-[#17321F] mt-2">
+      {/* Tech Stack */}
+      <div className="card" style={{ padding: '36px' }}>
+        <div style={{ marginBottom: '24px' }}>
+          <span className="badge" style={{ marginBottom: '8px' }}>SYSTEM ARCHITECTURE</span>
+          <h2 style={{ fontSize: '24px', fontWeight: 900, color: 'var(--text-primary)' }}>
             Technology Stack
           </h2>
-          <p className="text-xs text-[#66756B]">Simple, modern full-stack web technologies configured for demonstration.</p>
+          <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Simple, modern full-stack web technologies configured for demonstration.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
-          
-          <div className="bg-[#F7FAF7] p-5 rounded-2xl border border-emerald-900/5 space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-[#14532D] flex items-center justify-center">
-              <Layout className="w-5 h-5" />
+        <div className="grid-4">
+          <div style={{ backgroundColor: 'var(--bg-color)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(20, 83, 45, 0.05)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'var(--light-green)', color: 'var(--primary-green)', display: 'flex', alignItems: 'center', justifyCenter: 'center' }}>
+              <Layout size={20} />
             </div>
-            <h3 className="font-extrabold text-base text-[#17321F]">React</h3>
-            <p className="text-xs text-[#66756B]">Frontend SPA with Tailwind CSS styling & Recharts visualization.</p>
+            <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)' }}>React</h3>
+            <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Frontend SPA with Pure Custom CSS & Recharts visualization.</p>
           </div>
 
-          <div className="bg-[#F7FAF7] p-5 rounded-2xl border border-emerald-900/5 space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-[#14532D] flex items-center justify-center">
-              <Server className="w-5 h-5" />
+          <div style={{ backgroundColor: 'var(--bg-color)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(20, 83, 45, 0.05)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'var(--light-green)', color: 'var(--primary-green)', display: 'flex', alignItems: 'center', justifyCenter: 'center' }}>
+              <Server size={20} />
             </div>
-            <h3 className="font-extrabold text-base text-[#17321F]">Node.js</h3>
-            <p className="text-xs text-[#66756B]">JavaScript runtime handling server processing and routing.</p>
+            <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)' }}>Node.js</h3>
+            <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>JavaScript runtime handling server processing and routing.</p>
           </div>
 
-          <div className="bg-[#F7FAF7] p-5 rounded-2xl border border-emerald-900/5 space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-[#14532D] flex items-center justify-center">
-              <Cpu className="w-5 h-5" />
+          <div style={{ backgroundColor: 'var(--bg-color)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(20, 83, 45, 0.05)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'var(--light-green)', color: 'var(--primary-green)', display: 'flex', alignItems: 'center', justifyCenter: 'center' }}>
+              <Cpu size={20} />
             </div>
-            <h3 className="font-extrabold text-base text-[#17321F]">Express.js</h3>
-            <p className="text-xs text-[#66756B]">RESTful API endpoints for recommendations and AI chat.</p>
+            <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)' }}>Express.js</h3>
+            <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>RESTful API endpoints for recommendations and AI chat.</p>
           </div>
 
-          <div className="bg-[#F7FAF7] p-5 rounded-2xl border border-emerald-900/5 space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-[#14532D] flex items-center justify-center">
-              <Sparkles className="w-5 h-5" />
+          <div style={{ backgroundColor: 'var(--bg-color)', padding: '20px', borderRadius: '16px', border: '1px solid rgba(20, 83, 45, 0.05)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'var(--light-green)', color: 'var(--primary-green)', display: 'flex', alignItems: 'center', justifyCenter: 'center' }}>
+              <Sparkles size={20} />
             </div>
-            <h3 className="font-extrabold text-base text-[#17321F]">Generative AI</h3>
-            <p className="text-xs text-[#66756B]">Gemini API Integration with intelligent rule-based fallback.</p>
+            <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)' }}>Generative AI</h3>
+            <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Gemini API Integration with intelligent rule-based fallback.</p>
           </div>
-
         </div>
       </div>
 
-      {/* Demonstration Viva Flow Guide */}
-      <div className="bg-[#EAF6EC] p-8 sm:p-10 rounded-3xl border border-emerald-200 space-y-6">
-        <div className="flex items-center gap-3">
-          <ShieldCheck className="w-7 h-7 text-[#14532D]" />
+      {/* Viva Flow Checklist */}
+      <div style={{ backgroundColor: 'var(--light-green)', padding: '36px', borderRadius: '28px', border: '1px solid #a3d9b1', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div className="flex-row gap-3">
+          <ShieldCheck size={28} color="var(--primary-green)" />
           <div>
-            <h2 className="text-xl font-extrabold text-[#17321F]">
-              Viva & Progress Demonstration Flow
-            </h2>
-            <p className="text-xs text-[#2E7D52]">Key methodology points to explain during project presentation</p>
+            <h2 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)' }}>Viva & Progress Demonstration Flow</h2>
+            <p style={{ fontSize: '12px', color: 'var(--secondary-green)' }}>Key methodology points to explain during project presentation</p>
           </div>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold text-[#14532D]">
-          <li className="flex items-center gap-2 bg-white p-3 rounded-xl border border-emerald-200/80">
-            <CheckCircle2 className="w-4 h-4 text-[#3E8E5B] shrink-0" />
+        <div className="grid-2">
+          <div className="flex-row gap-2" style={{ backgroundColor: '#ffffff', padding: '14px', borderRadius: '12px', fontSize: '13px', fontWeight: 600, color: 'var(--primary-green)' }}>
+            <CheckCircle2 size={16} color="var(--success-color)" />
             <span>1. Collect 7 environmental indicators via range sliders (0–100)</span>
-          </li>
-          <li className="flex items-center gap-2 bg-white p-3 rounded-xl border border-emerald-200/80">
-            <CheckCircle2 className="w-4 h-4 text-[#3E8E5B] shrink-0" />
+          </div>
+          <div className="flex-row gap-2" style={{ backgroundColor: '#ffffff', padding: '14px', borderRadius: '12px', fontSize: '13px', fontWeight: 600, color: 'var(--primary-green)' }}>
+            <CheckCircle2 size={16} color="var(--success-color)" />
             <span>2. Calculate overall prototype score: arithmetic mean of indicators</span>
-          </li>
-          <li className="flex items-center gap-2 bg-white p-3 rounded-xl border border-emerald-200/80">
-            <CheckCircle2 className="w-4 h-4 text-[#3E8E5B] shrink-0" />
+          </div>
+          <div className="flex-row gap-2" style={{ backgroundColor: '#ffffff', padding: '14px', borderRadius: '12px', fontSize: '13px', fontWeight: 600, color: 'var(--primary-green)' }}>
+            <CheckCircle2 size={16} color="var(--success-color)" />
             <span>3. Dynamically filter problem areas (&lt; 60) vs performing areas (≥ 60)</span>
-          </li>
-          <li className="flex items-center gap-2 bg-white p-3 rounded-xl border border-emerald-200/80">
-            <CheckCircle2 className="w-4 h-4 text-[#3E8E5B] shrink-0" />
+          </div>
+          <div className="flex-row gap-2" style={{ backgroundColor: '#ffffff', padding: '14px', borderRadius: '12px', fontSize: '13px', fontWeight: 600, color: 'var(--primary-green)' }}>
+            <CheckCircle2 size={16} color="var(--success-color)" />
             <span>4. Send JSON payload to Express server `/api/recommendations`</span>
-          </li>
-          <li className="flex items-center gap-2 bg-white p-3 rounded-xl border border-emerald-200/80">
-            <CheckCircle2 className="w-4 h-4 text-[#3E8E5B] shrink-0" />
-            <span>5. GenAI prompt generates tailored action items with fallback safety</span>
-          </li>
-          <li className="flex items-center gap-2 bg-white p-3 rounded-xl border border-emerald-200/80">
-            <CheckCircle2 className="w-4 h-4 text-[#3E8E5B] shrink-0" />
-            <span>6. Render executive report with native print/download styling</span>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
 
     </div>

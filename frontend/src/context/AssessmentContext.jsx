@@ -63,7 +63,7 @@ export const indicatorMeta = [
 export const AssessmentProvider = ({ children }) => {
   const [locality, setLocality] = useState(initialDemoData.locality);
   const [indicators, setIndicators] = useState(initialDemoData.indicators);
-  const [hasAssessed, setHasAssessed] = useState(true); // default true with demo data so user can immediately explore dashboard or re-assess
+  const [hasAssessed, setHasAssessed] = useState(true);
   const [aiRecommendations, setAiRecommendations] = useState([]);
   const [expectedBenefits, setExpectedBenefits] = useState([]);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -71,23 +71,20 @@ export const AssessmentProvider = ({ children }) => {
   const [aiMessage, setAiMessage] = useState('');
   const [isFallback, setIsFallback] = useState(false);
 
-  // Compute average overall score
   const indicatorValues = Object.values(indicators);
   const overallScore = Math.round(
     indicatorValues.reduce((sum, val) => sum + val, 0) / indicatorValues.length
   );
 
-  // Derive score status and color
   const getScoreStatus = (score) => {
-    if (score < 40) return { label: 'Needs Major Improvement', color: '#D95C5C', bgClass: 'bg-red-50 text-red-700 border-red-200' };
-    if (score < 60) return { label: 'Needs Improvement', color: '#D99A2B', bgClass: 'bg-amber-50 text-amber-700 border-amber-200' };
-    if (score < 80) return { label: 'Moderate Sustainability', color: '#2E7D52', bgClass: 'bg-emerald-50 text-emerald-800 border-emerald-200' };
-    return { label: 'Good Sustainability', color: '#14532D', bgClass: 'bg-green-100 text-green-900 border-green-300' };
+    if (score < 40) return { label: 'Needs Major Improvement', color: '#D95C5C' };
+    if (score < 60) return { label: 'Needs Improvement', color: '#2E7D52' };
+    if (score < 80) return { label: 'Moderate Sustainability', color: '#2E7D52' };
+    return { label: 'Good Sustainability', color: '#14532D' };
   };
 
   const scoreStatus = getScoreStatus(overallScore);
 
-  // Identify problem areas (< 60) and performing areas (>= 60)
   const problemAreas = indicatorMeta.filter(item => indicators[item.key] < 60);
   const performingAreas = indicatorMeta.filter(item => indicators[item.key] >= 60);
 
@@ -103,7 +100,6 @@ export const AssessmentProvider = ({ children }) => {
     setIndicators(initialDemoData.indicators);
   };
 
-  // Trigger AI Recommendations fetch from backend
   const fetchRecommendations = async () => {
     setIsGenerating(true);
     setAiStep('Analyzing sustainability data...');
@@ -138,7 +134,6 @@ export const AssessmentProvider = ({ children }) => {
       }
     } catch (err) {
       console.error('Error in fetchRecommendations:', err);
-      // Fallback in-app if backend call fails
       setIsFallback(true);
       setAiMessage('AI service is currently unavailable. Showing rule-based recommendations for demonstration.');
       setAiRecommendations([
@@ -172,7 +167,6 @@ export const AssessmentProvider = ({ children }) => {
     }
   };
 
-  // Initial auto-generation on load
   useEffect(() => {
     if (hasAssessed && aiRecommendations.length === 0) {
       fetchRecommendations();
