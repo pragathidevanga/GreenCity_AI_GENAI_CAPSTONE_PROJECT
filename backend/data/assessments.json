@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "locality": "Electronic City",
+    "overallScore": 68,
+    "status": "Moderate Sustainability",
+    "indicators": {
+      "waste": 60,
+      "water": 70,
+      "electricity": 55,
+      "traffic": 40,
+      "greenSpace": 65,
+      "publicTransport": 75,
+      "evInfrastructure": 45
+    },
+    "problemAreas": [
+      "Traffic Management",
+      "EV Infrastructure",
+      "Electricity Efficiency"
+    ],
+    "recommendations": [
+      {
+        "category": "Electricity Efficiency",
+        "icon": "⚡",
+        "title": "Solar Energy Adoption & LED Grid Upgrade",
+        "description": "Encourage rooftop solar PV installation incentives for commercial hubs and upgrade all street lighting to automated energy-efficient LEDs."
+      },
+      {
+        "category": "Traffic Management",
+        "icon": "🚗",
+        "title": "Sustainable Mobility & Smart Signal Synchronization",
+        "description": "Implement adaptive traffic signal control system, optimize heavy-vehicle access timings, and dedicate lanes for cycling and pedestrian safety."
+      },
+      {
+        "category": "EV Infrastructure",
+        "icon": "🔋",
+        "title": "Public Solar EV Charging Hubs",
+        "description": "Deploy fast-charging EV stations at commercial parking zones, public parks, and fuel stations with standardized multi-plug compatibility."
+      }
+    ],
+    "timestamp": "29/9/2026, 10:04:40 pm"
+  }
+]
